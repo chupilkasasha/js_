@@ -42,10 +42,31 @@ const personalMovieDb = {
       console.log(personalMovieDb);
     }
   },
+
+  toggleVisiblleMyDb: function () {
+    if (personalMovieDb.privet) {
+      personalMovieDb.privet = false;
+    } else {
+      personalMovieDb.privet = true;
+    }
+
+  },
   writeYourGanres: function () {
     for (let i = 1; i <= 3; i++) {
-      const gener = prompt(`ваш любимый жанр под номером ${i}`);
-      personalMovieDb.genres[i - 1] = gener;
-    }
+      const gener = prompt(`ваш любимый жанр под номером ${i}`).toUpperCase();
+      if (gener === '' || gener == null) {
+        console.log('вы ввели не корректные данные!');
+        i--;
+      } else {
+        personalMovieDb.genres[i - 1] = gener;
+      }
+
+    } 
+    personalMovieDb.genres.forEach((item,i) => {
+      
+       console.log(`мои жанры ${i+1} - это ${item}`);
+       personalMovieDb.genres.sort();
+       
+    });
   }
 };
