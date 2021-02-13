@@ -65,7 +65,11 @@ const personalMovieDb = {
     personalMovieDb.genres.forEach((item,i) => {
       
        console.log(`мои жанры ${i+1} - это ${item}`);
-       personalMovieDb.genres.sort();
+       personalMovieDb.genres.sort(st);
+
+       function st(a,b){
+         return a - b;
+       }
        
     });
   }
